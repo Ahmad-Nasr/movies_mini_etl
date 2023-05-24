@@ -31,3 +31,9 @@ class MovieActorsListView(ListView):
     model = MovieActors
     context_object_name = 'movies_actors'
     template_name = 'movies/movies_actors_table.html'
+
+
+class MovieGenresListView(ListView):
+    model = MovieGenres
+    context_object_name = 'movies_genres'
+    template_name = 'movies/movies_genres_table.html'

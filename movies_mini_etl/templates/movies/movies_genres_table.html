@@ -1,0 +1,41 @@
+{% extends "movies/tables_base.html" %}
+
+{%block page_main_title%}
+<h1 class="mt-4">Movies-Genres</h1>
+{%endblock page_main_title%}
+
+
+{%block table_section%}
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Movies-Genres Table
+    </div>
+    <div class="card-body">
+        <table id="datatablesSimple">
+            <thead>
+                <tr>
+                    <th>Movie ID</th>
+                    <th>Genre ID</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Movie ID</th>
+                    <th>Genre ID</th>
+                </tr>
+            </tfoot>
+            <tbody>
+
+                {% for movie_genre in movies_genres %}
+                <tr>
+                    <td>{{movie_genre.movie.id}}</td>
+                    <td>{{movie_genre.genre.id}}</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+{%endblock table_section%}
