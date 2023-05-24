@@ -21,6 +21,11 @@ License: MIT
       $ docker-compose -f local.yml build
       $ docker-compose -f local.yml up
       
+## Creating super user      
+      
+      $ docker-compose -f local.yml exec django /entrypoint bash
+      $ python manage.py createsuperuser
+      
 ## Running tests
      
      $ docker-compose -f local.yml run --rm django pytest 
