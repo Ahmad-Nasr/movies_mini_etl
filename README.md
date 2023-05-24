@@ -1,54 +1,30 @@
 # movies_mini_etl
 
-Mini project to load movies data from Wikidata.org and store them to database tables using Django data models and Djnago ORM
+Mini ETL project that loads movies data from [wikidata.org](https://www.wikidata.org/), store it to database tables, and display it in webpages.
 
 [![Built with Cookiecutter Django](https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg?logo=cookiecutter)](https://github.com/cookiecutter/cookiecutter-django/)
 [![Black code style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
 License: MIT
 
+## Screenshots
+![alt text](https://lh3.googleusercontent.com/drive-viewer/AFGJ81qvLGWIKxB8YK5uYSLtuVFX6UA-1yZOE8zp65t7RnkfmMLsX3dsZu0aPSFQj_8pBTpb82hMGCT2fmAWNuG0Agc3CzPv=w1366-h643)
+
+![alt text](https://lh3.googleusercontent.com/drive-viewer/AFGJ81p8ioJf9zRvSwkJiIhcEt3ErtV5WpW_oXDthlXNaaw5ZiQQ5ipyfl89u60TmXXcWNjTJ_QHYZSlcZmi_DV-iE5S6FSoMQ=w1366-h643)
+
+![alt text](https://lh3.googleusercontent.com/drive-viewer/AFGJ81p3gRm5R-P1nl7Jn8Nn_r1nMLs0IEwKPbv2DRd-AJtJqWkHKFA-R4R1JdJrgGfK49mc6Vk8bKCWmOpBnbhfMbAfecIEBQ=w1366-h643)
+
+![alt text](https://lh3.googleusercontent.com/drive-viewer/AFGJ81pfkLhsChS47Y0Ackt-w6jvSvoQNCt8-8SGK8HNCVjvODlfzr2RTIXzdeX_PdEaszTiBcdM7ALAVu4D2FDgQSpC6VWY=w1366-h643)
+
+## Running on local machine
+      
+      $ docker-compose -f local.yml build
+      $ docker-compose -f local.yml up
+      
+## Running tests
+     
+     $ docker-compose -f local.yml run --rm django pytest 
+
 ## Settings
 
 Moved to [settings](http://cookiecutter-django.readthedocs.io/en/latest/settings.html).
-
-## Basic Commands
-
-### Setting Up Your Users
-
-- To create a **normal user account**, just go to Sign Up and fill out the form. Once you submit it, you'll see a "Verify Your E-mail Address" page. Go to your console to see a simulated email verification message. Copy the link into your browser. Now the user's email should be verified and ready to go.
-
-- To create a **superuser account**, use this command:
-
-      $ python manage.py createsuperuser
-
-For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
-
-### Type checks
-
-Running type checks with mypy:
-
-    $ mypy movies_mini_etl
-
-### Test coverage
-
-To run the tests, check your test coverage, and generate an HTML coverage report:
-
-    $ coverage run -m pytest
-    $ coverage html
-    $ open htmlcov/index.html
-
-#### Running tests with pytest
-
-    $ pytest
-
-### Live reloading and Sass CSS compilation
-
-Moved to [Live reloading and SASS compilation](https://cookiecutter-django.readthedocs.io/en/latest/developing-locally.html#sass-compilation-live-reloading).
-
-## Deployment
-
-The following details how to deploy this application.
-
-### Docker
-
-See detailed [cookiecutter-django Docker documentation](http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html).
