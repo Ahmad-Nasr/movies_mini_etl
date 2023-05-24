@@ -7,6 +7,8 @@ class Movie(TimeStampedModel):
     title = models.CharField(_('Title'), max_length=128)
     wikidata_id = models.PositiveIntegerField(_('Wikidata ID'))
     imdb_id = models.CharField(_('IMDB ID'), max_length=128)
+    director = models.ForeignKey('movies.Director', related_name='movies',
+                                 null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.title
