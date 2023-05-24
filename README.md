@@ -1,6 +1,6 @@
 # movies_mini_etl
 
-Mini ETL project that loads movies data from [wikidata.org](https://www.wikidata.org/), stores it to database tables, and displays it in webpages.
+Mini ETL project that loads movies data from [wikidata.org](https://www.wikidata.org/), stores it in database tables, and displays it in webpages.
 
 [![Built with Cookiecutter Django](https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg?logo=cookiecutter)](https://github.com/cookiecutter/cookiecutter-django/)
 [![Black code style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
