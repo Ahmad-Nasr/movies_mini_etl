@@ -1,0 +1,46 @@
+{% extends "movies/tables_base.html" %}
+
+{%block page_main_title%}
+<h1 class="mt-4">Movies</h1>
+{%endblock page_main_title%}
+
+
+{%block table_section%}
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Movies Table
+    </div>
+    <div class="card-body">
+        <table id="datatablesSimple">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Wikidata ID</th>
+                    <th>IMDB ID</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Wikidata ID</th>
+                    <th>IMDB ID</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                {% for movie in movies %}
+                <tr>
+                    <td>{{movie.id}}</td>
+                    <td>{{movie.title}}</td>
+                    <td>{{movie.wikidata_id}}</td>
+                    <td>{{movie.imdb_id}}</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+{%endblock table_section%}
