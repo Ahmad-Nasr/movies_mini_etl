@@ -1,0 +1,82 @@
+{% extends "movies/base.html" %}
+
+{%block page_main_title%}
+<h1 class="mt-4">Movies Loader</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"><b>Loading/updating movies data from Wikidata.</b><br />
+        <b>Note:</b> Due to Wikidata <a
+            href="https://www.mediawiki.org/wiki/Wikidata_Query_Service/User_Manual#Query_limits">
+            "Query limits"</a>, larger numbers take longer loading time.
+    </li>
+</ol>
+{%endblock page_main_title%}
+
+
+{%block table_section%}
+<div class="row justify-content-center align-items-center">
+    <div class="col-md-2">
+        Number of movies:
+    </div>
+    <div class="col-md-1">
+        <input id="movies-count-input" type="text" class="form-control" placeholder="Number of movies to load"
+            value="5">
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <button id="loading-button" class="btn btn-dark btn-lg col-3 mt-3" type="button">
+        load movies
+    </button>
+</div>
+
+
+<script type='text/javascript'>
+    let loadingButton = document.getElementById("loading-button")
+    let moviesCountInput = document.getElementById("movies-count-input")
+
+    loadingButton.onclick = function loadData() {
+        let moviesCount = Number(moviesCountInput.value)
+        if (moviesCount <= 0) {
+            alert("Invalid input value")
+            return
+        }
+        //loading styling
+        loadingButton.disabled = true;
+        moviesCountInput.disabled = true;
+        let spinnerElement = '<span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>  loading...'
+        loadingButton.innerHTML = spinnerElement
+        let spinner = document.getElementById("spinner")
+
+        // Call API endpoint to load movies
+        fetch("{% url 'api:movies_api:load_movies' %}", {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': '{{csrf_token}}',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                movies_count: moviesCount,
+            }),
+        })
+            .then(response => {
+                if (response.status != 200) {
+                    //failure styling
+                    spinner.hidden = true
+                    loadingButton.classList.replace('btn-dark', 'btn-danger')
+                    loadingButton.innerText = 'Failed!'
+                    return
+                }
+                //success styling
+                spinner.hidden = true
+                loadingButton.classList.replace('btn-dark', 'btn-success')
+                loadingButton.innerText = 'Successfully loaded/updated!'
+            })
+            .catch(error => {
+                //failure styling
+                spinner.hidden = true
+                loadingButton.classList.replace('btn-dark', 'btn-danger')
+                loadingButton.innerText = 'Failed!'
+            });
+    };
+</script>
+{%endblock table_section%}
