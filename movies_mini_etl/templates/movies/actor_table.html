@@ -1,0 +1,44 @@
+{% extends "movies/tables_base.html" %}
+
+{%block page_main_title%}
+<h1 class="mt-4">Actors</h1>
+{%endblock page_main_title%}
+
+
+{%block table_section%}
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Actor Table
+    </div>
+    <div class="card-body">
+        <table id="datatablesSimple">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Wikidata ID</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Wikidata ID</th>
+                </tr>
+            </tfoot>
+            <tbody>
+
+                {% for actor in actors %}
+                <tr>
+                    <td>{{actor.id}}</td>
+                    <td>{{actor.name}}</td>
+                    <td>{{actor.wikidata_id}}</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+{%endblock table_section%}
