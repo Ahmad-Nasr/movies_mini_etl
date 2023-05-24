@@ -9,6 +9,7 @@ class Movie(TimeStampedModel):
     imdb_id = models.CharField(_('IMDB ID'), max_length=128)
     director = models.ForeignKey('movies.Director', related_name='movies',
                                  null=True, on_delete=models.SET_NULL)
+    actors = models.ManyToManyField('movies.Actor', through='movies.MovieActors')
 
     def __str__(self):
         return self.title
@@ -35,3 +36,8 @@ class Genre(TimeStampedModel):
 
     def __str__(self):
         return self.name
+
+
+class MovieActors(TimeStampedModel):
+    movie = models.ForeignKey("movies.Movie", on_delete=models.CASCADE)
+    actor = models.ForeignKey("movies.Actor", on_delete=models.CASCADE)
