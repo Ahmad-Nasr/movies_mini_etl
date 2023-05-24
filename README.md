@@ -16,6 +16,9 @@ License: MIT
 
 ![alt text](https://lh3.googleusercontent.com/drive-viewer/AFGJ81pfkLhsChS47Y0Ackt-w6jvSvoQNCt8-8SGK8HNCVjvODlfzr2RTIXzdeX_PdEaszTiBcdM7ALAVu4D2FDgQSpC6VWY=w1366-h643)
 
+## Simple Entity-Relationship (ER) diagram 
+![alt text](https://lh3.googleusercontent.com/drive-viewer/AFGJ81pHy3M-XlmQqsAzVlrcQk1KMSFT06cyMRhoDL2rDJVDf_FnS1-_tOj3HPVJs0SlpxQsuoLgliWbQa1IG1IvZAOgNBMh=w1366-h643)
+
 ## Running on local machine
       
       $ docker-compose -f local.yml build
