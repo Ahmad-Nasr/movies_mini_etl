@@ -19,3 +19,9 @@ class ActorListView(ListView):
     model = Actor
     context_object_name = 'actors'
     template_name = 'movies/actor_table.html'
+
+
+class GenresListView(ListView):
+    model = Genre
+    context_object_name = 'genres'
+    template_name = 'movies/genre_table.html'
