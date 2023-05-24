@@ -1,9 +1,9 @@
 from django.urls import path
-from django.views.generic import TemplateView
 
-from .views import MovieListView
+from .views import MovieListView, DirectorListView
 
 app_name = "movies"
 urlpatterns = [
     path("", view=MovieListView.as_view(), name="list_movies"),
+    path("directors", view=DirectorListView.as_view(), name="list_directors"),
 ]
